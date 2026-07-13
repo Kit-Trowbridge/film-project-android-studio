@@ -16,11 +16,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.filmquote.ui.theme.Cornflower
 import com.example.filmquote.ui.theme.FilmQuoteTheme
+import com.example.filmquote.ui.theme.GradientColors
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +55,13 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
     ) {
         Text(
             text = quote,
-            style = MaterialTheme.typography.titleLarge,
+            style = MaterialTheme.typography.titleLarge.merge(
+                TextStyle(
+                    brush = Brush.linearGradient(
+                        colors = GradientColors
+                    )
+                )
+            ),
             fontStyle = FontStyle.Italic
         )
         Spacer(
@@ -60,6 +70,7 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
         Text(
             text = title,
             fontSize = 30.sp,
+            color = Cornflower,
             modifier = Modifier
                 .align(alignment = Alignment.End)
         )
