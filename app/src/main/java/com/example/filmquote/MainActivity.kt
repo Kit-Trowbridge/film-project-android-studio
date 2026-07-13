@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -19,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Shadow
@@ -57,7 +57,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
     Box(
-        contentAlignment = Alignment.Center, // aligns self in screen context
+        contentAlignment = Alignment.Center, // aligns children
+
     ){
         FilmImage(
             modifier = Modifier
@@ -67,7 +68,6 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
         Column(
             modifier = modifier
                 .padding(all = 30.dp)
-                .align(alignment = Alignment.Center)
         ) {
             Text(
                 text = quote,
@@ -99,7 +99,9 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
             ElevatedButton(
                 onClick = {
                     println("Button was clicked")
-                }
+                },
+                modifier = Modifier
+                    .align(alignment= Alignment.CenterHorizontally)
             ) {
                 Text(text = stringResource(R.string.button_label))
             }
