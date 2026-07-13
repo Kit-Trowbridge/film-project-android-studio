@@ -50,8 +50,7 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
     ) {
         Text(
             text = quote,
-            fontSize = 50.sp,
-            lineHeight = 50.sp
+            style = MaterialTheme.typography.titleLarge
         )
         Spacer(
             Modifier.height(25.dp)
