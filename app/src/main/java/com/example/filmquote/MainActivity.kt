@@ -66,6 +66,7 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
                 .fillMaxSize()
         )
         Column(
+            horizontalAlignment = Alignment.CenterHorizontally, // aligns children
             modifier = modifier
                 .padding(all = 30.dp)
         ) {
@@ -91,7 +92,7 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
                 fontSize = 30.sp,
                 color = Cornflower,
                 modifier = Modifier
-                    .align(alignment = Alignment.End)
+                    .align(alignment = Alignment.End) // aligns self
             )
             Spacer(
                 Modifier.height(25.dp)
@@ -99,9 +100,7 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
             ElevatedButton(
                 onClick = {
                     println("Button was clicked")
-                },
-                modifier = Modifier
-                    .align(alignment= Alignment.CenterHorizontally)
+                }
             ) {
                 Text(text = stringResource(R.string.button_label))
             }
