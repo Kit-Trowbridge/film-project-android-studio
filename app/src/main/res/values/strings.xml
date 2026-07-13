@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Film Quote</string>
+    <string name="button_label">Click me! :o</string>
 </resources>

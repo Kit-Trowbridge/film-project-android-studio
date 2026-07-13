@@ -15,4 +15,5 @@ val Aqua = Color(AndroidColor.parseColor("#6B90C0"))
 val Cornflower = Color(AndroidColor.parseColor("#6B90C0"))
 val Mauve = Color(AndroidColor.parseColor("#D383BF"))
 
+val DarkShadow = Color(AndroidColor.parseColor("#170B16"))
 val GradientColors: List<Color> = listOf(Aqua, Cornflower, Mauve)
