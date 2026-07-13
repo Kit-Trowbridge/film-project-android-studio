@@ -76,6 +76,13 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
             modifier = Modifier
                 .align(alignment = Alignment.End)
         )
+        Spacer(
+            Modifier.height(25.dp)
+        )
+        FilmImage(
+            modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+        )
     }
 }
 
@@ -84,7 +91,8 @@ fun FilmImage(modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.bl)
     Image(
         painter = image,
-        contentDescription = null
+        contentDescription = null,
+        modifier = modifier
     )
 }
 
@@ -95,5 +103,4 @@ fun FilmCardPreview() {
         quote = "\"Yeah, well, you know, that's just, like, your opinion, man.\"",
         title = "The Big Lebowski"
     )
-    FilmImage()
 }
