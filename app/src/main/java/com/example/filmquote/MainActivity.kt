@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -64,9 +65,9 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
                 .fillMaxSize()
         )
         Column(
-
             modifier = modifier
                 .padding(all = 30.dp)
+                .align(alignment = Alignment.Center)
         ) {
             Text(
                 text = quote,
@@ -95,9 +96,11 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
             Spacer(
                 Modifier.height(25.dp)
             )
-            Button(onClick = {
-                println("Button was clicked")
-            }) {
+            ElevatedButton(
+                onClick = {
+                    println("Button was clicked")
+                }
+            ) {
                 Text(text = stringResource(R.string.button_label))
             }
 
