@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.example.filmquote.ui.theme.Cornflower
 import com.example.filmquote.ui.theme.FilmQuoteTheme
 import com.example.filmquote.ui.theme.GradientColors
+import androidx.compose.foundation.Image
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,11 +79,21 @@ fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun FilmImage(modifier: Modifier = Modifier) {
+    val image = painterResource(R.drawable.bl)
+    Image(
+        painter = image,
+        contentDescription = null
+    )
+}
+
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun FilmCardPreview() {
     FilmCard(
         quote = "\"Yeah, well, you know, that's just, like, your opinion, man.\"",
         title = "The Big Lebowski"
     )
+    FilmImage()
 }
