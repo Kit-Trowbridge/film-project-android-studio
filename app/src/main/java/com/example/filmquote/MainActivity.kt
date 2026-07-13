@@ -1,10 +1,13 @@
 package com.example.filmquote
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,7 +29,6 @@ import androidx.compose.ui.unit.sp
 import com.example.filmquote.ui.theme.Cornflower
 import com.example.filmquote.ui.theme.FilmQuoteTheme
 import com.example.filmquote.ui.theme.GradientColors
-import androidx.compose.foundation.Image
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,40 +52,44 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun FilmCard(quote: String, title: String, modifier: Modifier = Modifier) {
-    Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier
-            .padding(all = 30.dp)
-    ) {
-        Text(
-            text = quote,
-            style = MaterialTheme.typography.titleLarge.merge(
-                TextStyle(
-                    brush = Brush.linearGradient(
-                        colors = GradientColors
+    Box(
+        contentAlignment = Alignment.Center, // aligns self in screen context
+    ){
+        Column(
+
+            modifier = modifier
+                .padding(all = 30.dp)
+        ) {
+            Text(
+                text = quote,
+                style = MaterialTheme.typography.titleLarge.merge(
+                    TextStyle(
+                        brush = Brush.linearGradient(
+                            colors = GradientColors
+                        )
                     )
-                )
-            ),
-            fontStyle = FontStyle.Italic
-        )
-        Spacer(
-            Modifier.height(25.dp)
-        )
-        Text(
-            text = title,
-            fontSize = 30.sp,
-            color = Cornflower,
-            modifier = Modifier
-                .align(alignment = Alignment.End)
-        )
-        Spacer(
-            Modifier.height(25.dp)
-        )
+                ),
+                fontStyle = FontStyle.Italic
+            )
+            Spacer(
+                Modifier.height(25.dp)
+            )
+            Text(
+                text = title,
+                fontSize = 30.sp,
+                color = Cornflower,
+                modifier = Modifier
+                    .align(alignment = Alignment.End)
+            )
+
+        }
         FilmImage(
-            modifier = Modifier
-                .align(alignment = Alignment.CenterHorizontally)
+        modifier = Modifier
+            .align(alignment = Alignment.Center)
         )
     }
+
+
 }
 
 @Composable
